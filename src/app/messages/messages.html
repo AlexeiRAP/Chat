@@ -1,0 +1,32 @@
+<div >
+  <md-content>
+    <header>
+      <acme-navbar></acme-navbar>
+    </header>
+    </md-content>
+
+  <div layout="row">
+    <div flex="10"></div>
+    <div name="history" id="history" flex>
+    </div>
+    <div flex="10"></div>
+  </div>
+
+  <div>Here will be  the chat</div>
+
+  <div></div>
+  <form name=messageInputForm>
+    <md-input-container class="md-block">
+      <label></label>
+      <input name="messageInput" 
+      ng-model="myMessage" 
+      placeholder="Your message is here"  
+      minlength="1"
+      required>
+      <!-- 
+      <send-message-button></send-message-button> -->
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="messageInputForm.$invalid" send-message>Send</md-button>
+
+    </md-input-container>
+  </form>
+</div>

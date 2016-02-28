@@ -6,16 +6,14 @@
 		.directive('sendMessage', sendMessage);
 
 	/** @ngInject */
-	function sendMessage(messageService, $log) {
-		return function(scope, element, messageService, log){
+	function sendMessage(messageService) {
+		return function(scope, element, log){
 			element.bind("click", function(){
-				$log.info('nen' + scope.myMessage);
-				document.getElementById('history').innerHTML+= '<div class="myMessages">' + scope.myMessage + '</div>';
-				messageService.saveMessages(scope.myMessage).then(function(){
-        /*vm.message = true;*/
-      });
+				var myMsg = scope.myMessage;
+				var name = scope.myName;
+				document.getElementById('history').innerHTML+= '<div class="myMessages">' + name + ': ' + myMsg + '</div>';
+				messageService.saveMessages(myMsg, scope.timestamp);
 				scope.myMessage = '';
-		
 			});
 
 		}

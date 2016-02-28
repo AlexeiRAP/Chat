@@ -6,20 +6,26 @@
     .controller('MessagesController', MessagesController);
 
   /** @ngInject */
-  function MessagesController($scope, $interval, $compile, messageService, $log) {
+  function MessagesController($scope, $interval, $compile, messageService) {
+    $scope.myName = 'Alex';
     var vm = this;
     vm.messagehistory = {};
-    function getHistoryMessages(){
-      vm.messagehistory = messageService.getMessages();
-      
 
-        angular.forEach(vm.messagehistory, function(item){
-          angular.element(document.getElementById('history')).append($compile("<div class='alienMessages'>" + item.msg + "</div>")($scope));
-        }) 
+    function getHistoryMessages($scope){
+      $scope.timestamp = new Date().getTime();
+      vm.messagehistory = messageService.getMessages($scope.timestamp);
+      angular.forEach(vm.messagehistory, function(item){
+        if (item.name === $scope.myName){
+          angular.element(document.getElementById('history')).append($compile("<div class='myMessages'> Alex: " + item.msg + "</div>")($scope));  
+        }
+        else {
+         angular.element(document.getElementById('history')).append($compile("<div class='alienMessages'>" + item.name + ": " + item.msg + "</div>")($scope));   
+        }
+      }) 
     }   
-    
+    var time = 10000 // обновление каждые 10 секунд
 
-    $interval(getHistoryMessages, 3000)
+    $interval(getHistoryMessages, time)
 
     
     /*

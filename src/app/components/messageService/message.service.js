@@ -6,26 +6,28 @@
     .service('messageService', messageService)
 
   /** @ngInject */
-  function messageService($http, $q) {
+  function messageService($http, $q, $log) {
     
-    var myhistory =[ {name: 'Alex', msg: 'Hi'},
-                    {name: 'Alex', msg: 'It\'s me'}
+    var myhistory =[ {name: 'Marta', msg: 'Hi', timestamp: ''}
                     ]
 
-    this.getMessages = function(){
-      return myhistory
+    this.getMessages = function(timeStamp){
+     
+      /*$http.get('GET /api/message/list?timestamp=' + timeStamp)
+        .then(function(response) {
+          return response.data;
+        });*/
+        return myhistory
     }
     
-    this.saveMessages = function(message) {
-      console.log('привет')
-      return function(){
-        myhistory.push({name:'Alex', msg: message});
-        /*$http.post('https://fathomless-everglades-3680.herokuapp.com/api/user/1', msg);*/
-      }
-
+    this.saveMessages = function(message, timeStamp) {
+      var timeNow = new Date().getTime();
       
-      
-      /*return $http.post('https://fathomless-everglades-3680.herokuapp.com/api/user/1', user);*/
+      var myMsg = {name:'Alex', msg: message, timestamp: timeNow} 
+      $log.info(myMsg);
+      myhistory.push(myMsg);
+      return myhistory
+     /* $http.post('/api/message/send?timestamp=' + myMsg.timestamp + '&msg=' + myMsg.msg+ '&username=' + myMsg.name);*/
     }
   }
 })();

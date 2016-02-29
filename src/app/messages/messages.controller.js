@@ -17,13 +17,12 @@
       vm.messagehistory = messageService.getMessages($scope.timestamp);
       angular.forEach(vm.messagehistory, function(item){
         if ($scope.timestamp < item.timestamp){
-          console.log(item.user)
           if (item.user === $scope.myName){
             angular.element(document.getElementById('history')).append($compile("<div id='myMessages' class='myMessagesClass'> Alex: <br>" + item.msg + "</div><div></div>")($scope));  
           }
           else {
             console.log('не моё')
-            angular.element(document.getElementById('history')).append($compile("<div id='alienMessages'>" + item.user + ":<br> " + item.msg + "</div><div></div>")($scope));   
+            angular.element(document.getElementById('history')).append($compile("<div id='alienMessages' class='alienMessagesClass'>" + item.user + ":<br> " + item.msg + "</div><div></div>")($scope));   
           }  
         }
         

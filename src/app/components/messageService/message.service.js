@@ -8,7 +8,10 @@
   /** @ngInject */
   function messageService($http, $q, $log) {
     
-    var myhistory =[ {name: 'Marta', msg: 'Hi', timestamp: ''}
+    var myhistory =[ { user: 'Olga', msg: 'Hi!', timestamp: 1456651674675 },
+                      { user: 'Anton', msg: 'Hi-hi!', timestamp: 1456651692612 },
+                      { user: 'Olga', msg: 'How are you?', timestamp: 1456651891409 }
+
                     ]
 
     this.getMessages = function(timeStamp){
@@ -23,7 +26,7 @@
     this.saveMessages = function(message, timeStamp) {
       var timeNow = new Date().getTime();
       
-      var myMsg = {name:'Alex', msg: message, timestamp: timeNow} 
+      var myMsg = {user:'Alex', msg: message, timestamp: timeNow} 
       $log.info(myMsg);
       myhistory.push(myMsg);
       return myhistory

@@ -1,10 +1,63 @@
-
-.myMessages{
-  text-align: right;
-  /*float: right;*/
+.myMessagesClass{
+	text-align: right;
+}
+#myMessages {
+    width: 140px;
+    height: auto;
+    background: #1565C0;
+    position: inherit;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    text-align: center;
+    text-vertical-align: middle;
+}
+#myMessages:before {
+    content: "";
+    width: 0;
+    height: 0;
+    right: -14%;
+    top: 8px;
+    position: absolute;
+    border-top: 13px solid transparent;
+    border-left: 26px solid #1565C0;
+    border-bottom: 13px solid transparent;
 }
 
-.alienMessages{
-  text-align: left;
-  /*float: left;*/
+
+.alienMessagesClass{
+	text-align: right;
 }
+#alienMessages {
+    text-align: left;
+    width: 140px;
+    height: auto;
+    background: #1565C0;
+    position: relative;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    text-align: center;
+    text-vertical-align: middle;
+}
+#alienMessages:before {
+    content: "";
+    width: 0;
+    height: 0;
+    right: 95%;
+    top: 8px;
+    position: absolute;
+    border-top: 13px solid transparent;
+    border-right: 26px solid #1565C0;
+    border-bottom: 13px solid transparent;
+}
+
+
+
+.footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: auto;
+}    

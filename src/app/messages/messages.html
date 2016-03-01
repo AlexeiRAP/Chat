@@ -1,19 +1,21 @@
-<div >
+<div>
   <md-content>
     <header>
       <acme-navbar></acme-navbar>
     </header>
-    </md-content>
-
-  <div layout="row">
-    <div flex="10"></div>
-    <div name="history" id="history" flex>
+  </md-content>
+  <div class="page-buffer_top"></div>
+  <div class="page-wrapper">
+    <div layout="row">
+      <div flex="10"></div>
+      <div name="history" id="history" flex>
+      </div>
+      <div flex="10"></div>
     </div>
-    <div flex="10"></div>
-  </div>
 
-  
-  <form class="footer" name=messageInputForm>
+    <div class="page-buffer_bottom"></div>
+  </div>
+  <div class="footer" name=messageInputForm>
     <md-input-container class="md-block">
       <label></label>
       <input name="messageInput" 
@@ -26,5 +28,5 @@
       <md-button type="submit" class="md-raised md-primary" ng-disabled="messageInputForm.$invalid" send-message>Send</md-button>
 
     </md-input-container>
-  </form>
+  </div>
 </div>

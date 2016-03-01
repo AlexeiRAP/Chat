@@ -23,7 +23,7 @@
         return myhistory
     }
     
-    this.saveMessages = function(message, timeStamp) {
+    this.saveMessages = function(message) {
       var timeNow = new Date().getTime();
       
       var myMsg = {user:'Alex', msg: message, timestamp: timeNow} 

@@ -12,8 +12,6 @@
     var vm = this;
     vm.messagehistory = {};
     function getHistoryMessages(scope){
-      console.log('проверка');
-      console.log($scope.timestamp);
       vm.messagehistory = messageService.getMessages($scope.timestamp);
       angular.forEach(vm.messagehistory, function(item){
         if ($scope.timestamp < item.timestamp){
@@ -21,7 +19,6 @@
             angular.element(document.getElementById('history')).append($compile("<div id='myMessages' class='myMessagesClass'> Alex: <br>" + item.msg + "</div><div></div>")($scope));  
           }
           else {
-            console.log('не моё')
             angular.element(document.getElementById('history')).append($compile("<div id='alienMessages' class='alienMessagesClass'>" + item.user + ":<br> " + item.msg + "</div><div></div>")($scope));   
           }  
         }
@@ -31,7 +28,13 @@
     }   
     var time = 10000 // обновление каждые 10 секунд
     getHistoryMessages();
-    $interval(getHistoryMessages, time)
+    $interval(getHistoryMessages, time);
+    
+    function scrollFunction(){
+      window.scrollTo(0,document.body.scrollHeight);  
+    }
+
+    $interval(scrollFunction, 1000);
 
     
     /*

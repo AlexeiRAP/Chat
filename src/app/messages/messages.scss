@@ -1,22 +1,25 @@
 .myMessagesClass{
 	text-align: right;
 }
+
 #myMessages {
+    text-align: center;
     width: 140px;
     height: auto;
     background: #1565C0;
-    position: inherit;
+    position: relative;
+    left: 55%;
     -moz-border-radius: 12px;
     -webkit-border-radius: 12px;
     border-radius: 12px;
-    text-align: center;
-    text-vertical-align: middle;
+    text-vertical-align: middle center;
 }
+
 #myMessages:before {
     content: "";
     width: 0;
     height: 0;
-    right: -14%;
+    right: -15%;
     top: 8px;
     position: absolute;
     border-top: 13px solid transparent;
@@ -24,10 +27,10 @@
     border-bottom: 13px solid transparent;
 }
 
-
 .alienMessagesClass{
 	text-align: right;
 }
+
 #alienMessages {
     text-align: left;
     width: 140px;
@@ -40,6 +43,7 @@
     text-align: center;
     text-vertical-align: middle;
 }
+
 #alienMessages:before {
     content: "";
     width: 0;
@@ -52,12 +56,26 @@
     border-bottom: 13px solid transparent;
 }
 
-
-
 .footer {
+  background: white;
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   height: auto;
 }    
+
+.page-wrapper {
+    min-height: 100%;
+    margin-bottom: -120px;
+}
+* html .page-wrapper {
+    height: 100%;
+}
+
+.page-buffer_top {
+    height: 10px;
+}
+.page-buffer_bottom {
+    height: 120px;
+}
